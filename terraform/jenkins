@@ -4,7 +4,7 @@ pipeline {
 	    stage('Checkout external proj') {
         steps {
             git branch: 'main',
-                credentialsId: 'naga',
+                credentialsId: 'jenkins-token2',
                 url: 'https://github.com/Nagarajuboddula/09_2023.git'
         }
     }
