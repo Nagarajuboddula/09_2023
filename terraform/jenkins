@@ -6,7 +6,7 @@ pipeline {
           //  git branch: 'main',
             //    credentialsId: 'AKIA37XT3JUN2UO3R3B5',
               //  url: 'https://github.com/Nagarajuboddula/09_2023.git'
-        }
+        //}
     //}
 
         stage('Checkout') {
@@ -24,5 +24,6 @@ pipeline {
                 //echo "Terraform action is --> ${action}"
                 sh "terraform apply --auto-approve"
             }
-        }    
- }     
+        }
+    }    
+}
