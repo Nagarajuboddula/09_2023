@@ -8,8 +8,8 @@ resource "aws_instance" "ec2_example" {
 
     ami = "ami-0767046d1677be5a0"
     instance_type = "t2.micro"
-    key_name= "aws_key"
-    vpc_security_group_ids = [aws_security_group.main.id]
+    key_name= "lambda-test"
+    #vpc_security_group_ids = [aws_security_group.main.id]
 
   user_data = <<-EOF
       #!/bin/sh
