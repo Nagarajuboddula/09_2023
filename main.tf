@@ -1,9 +1,9 @@
 provider "aws" {
+  
    region     = "us-east-1"
-   access_key = "xyz"
-   secret_key = "zzz/"
-}
 
+
+}
 resource "aws_instance" "ec2_example" {
 
     ami = "ami-053b0d53c279acc90"
