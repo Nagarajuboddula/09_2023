@@ -1,8 +1,7 @@
-provider "aws" {
-  
-   region     = "us-east-1"
-
-
+provider “aws” {
+#profile = var.profile
+shared_credentials_files = ["/root/.aws/credentials"]
+region = us-east-1
 }
 resource "aws_instance" "ec2_example" {
 
