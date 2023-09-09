@@ -23,13 +23,13 @@ provider "aws" {
 
 
 
-resource "aws_instance" "ec2_example" {
+resource "ec2_instance" "ec2_example" {
 
     ami = "ami-053b0d53c279acc90"
     instance_type = "t2.micro"
     key_name= "naga"
     #vpc_security_group_ids = [aws_security_group.main.id]
-
+/*
   user_data = <<-EOF
       #!/bin/sh
       sudo apt-get update
@@ -38,6 +38,6 @@ resource "aws_instance" "ec2_example" {
       sudo systemctl start apache2
       sudo chown -R $USER:$USER /var/www/html
       sudo echo "<html><body><h1>Hello this custom page built with Terraform User Data</h1></body></html>" > /var/www/html/index.html
-      EOF
+      EOF*/ 
 } 
 
