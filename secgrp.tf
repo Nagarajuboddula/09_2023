@@ -1,4 +1,4 @@
-resource "aws_security_group" "demo-sg" {
+resource "aws_security_group" "sec-grp" {
   name = "sec-grp"
   description = "Allow HTTP and SSH traffic via Terraform"
 
