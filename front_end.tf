@@ -13,7 +13,7 @@ resource "aws_instance" "frontend_ec2_instance" {
       EOF
 } 
 
-
+/*
 resource "aws_security_group" "frontend_security_group" {
   name = "frontend_security_group"
   description = "frontend_security_group"
@@ -39,9 +39,9 @@ resource "aws_security_group" "frontend_security_group" {
   tags = {
     Name = "frontend_security_group"
   }
-}
+}*/
 
-/*
+
 resource "aws_security_group" "main" {
   egress = [
     {
@@ -69,5 +69,5 @@ resource "aws_security_group" "main" {
      to_port          = 22
   }
   ]
-}*/
+}
 

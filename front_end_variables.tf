@@ -48,7 +48,7 @@ variable "frontend_ingress_rules" {
   type        = map(list(string))
   description = "Security group rules"
 }*/
-
+/*
 variable "frontend_ingress_rules" {
   default     = {
     "my ingress rule" = {
@@ -69,3 +69,4 @@ variable "frontend_ingress_rules" {
   type        = map(any)
   description = "Security group rules"
 }
+*/
