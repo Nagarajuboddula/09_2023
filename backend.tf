@@ -1,25 +1,3 @@
-/*terraform {
-required_version = “>=0.12”
-}
-provider “aws” {
-#profile = var.profile
-shared_credentials_files = ["/root/.aws/credentials"]
-region = us-east-1
-}*/
-
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-
 
 
 resource "aws_instance" "ec2_example" {
@@ -39,7 +17,7 @@ resource "aws_instance" "ec2_example" {
       sudo echo "<html><body><h1>Hello this custom page built with Terraform User Data</h1></body></html>" > /var/www/html/index.html
       EOF*/ 
 } 
-resource "aws_security_group" "main" {
+/*resource "aws_security_group" "main" {
   egress = [
     {
       cidr_blocks      = [ "0.0.0.0/0", ]
@@ -66,5 +44,5 @@ resource "aws_security_group" "main" {
      to_port          = 22
   }
   ]
-}
+}*/
 
