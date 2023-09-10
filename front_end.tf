@@ -7,17 +7,11 @@ resource "aws_instance" "frontend_ec2_instance" {
     instance_type = var.frontend_ec2_instance_type
     #key_name= "naga"
     key_name= var.frontend_key_name
-    hostname = var.frontend_host_name
     #vpc_security_group_ids = [aws_security_group.main.id]
-/*
+
   user_data = <<-EOF
       #!/bin/sh
-      sudo apt-get update
-      sudo apt install -y apache2
-      sudo systemctl status apache2
-      sudo systemctl start apache2
-      sudo chown -R $USER:$USER /var/www/html
-      sudo echo "<html><body><h1>Hello this custom page built with Terraform User Data</h1></body></html>" > /var/www/html/index.html
+      hostnamectl set-hostname c8.local
       EOF*/ 
 } 
 resource "aws_security_group" "main" {
