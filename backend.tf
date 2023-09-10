@@ -1,5 +1,5 @@
 
-
+/*
 resource "aws_instance" "ec2_example" {
 
     ami = "ami-053b0d53c279acc90"
