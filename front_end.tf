@@ -3,7 +3,7 @@ resource "aws_instance" "frontend_ec2_instance" {
     ami = var.frontend_ec2_ami
     instance_type = var.frontend_ec2_instance_type
     key_name= var.frontend_key_name
-    instance_tags = var.frontend_instance_tags
+    tags = var.frontend_instance_tags
 
   user_data = <<-EOF
       #!/bin/sh
