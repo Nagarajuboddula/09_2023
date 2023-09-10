@@ -1,20 +1,73 @@
 
-resource "aws_instance" "ec2_example" {
-
-    ami = "ami-053b0d53c279acc90"
-    instance_type = "t2.micro"
-    key_name= "naga"
-    #vpc_security_group_ids = [aws_security_group.main.id]
-/*
+resource "aws_instance" "backend_ec2_instance" {
+    ami = var.backend_ec2_ami
+    instance_type = var.backend_ec2_instance_type
+    key_name= var.backend_key_name
+    tags = var.backend_instance_tags
+    #sg_description = var.backend_sg_description
+    #sg_ingress_with_cidr_blocks = var.backend_sg_ingress_with_cidr_blocks
+    #sg_egress_with_cidr_blocks = var.backend_sg_egress_with_cidr_blocks
   user_data = <<-EOF
       #!/bin/sh
-      sudo apt-get update
-      sudo apt install -y apache2
-      sudo systemctl status apache2
-      sudo systemctl start apache2
-      sudo chown -R $USER:$USER /var/www/html
-      sudo echo "<html><body><h1>Hello this custom page built with Terraform User Data</h1></body></html>" > /var/www/html/index.html
-      EOF*/ 
+      hostnamectl set-hostname u21.local
+      EOF
 } 
 
+/*
+resource "aws_security_group" "backend_security_group" {
+  name = "backend_security_group"
+  description = "backend_security_group"
+
+  dynamic "ingress" {
+    for_each = var.backend_ingress_rules
+    content {
+      description      = lookup(backend_ingress.value, "description", null)
+      from_port        = lookup(backend_ingress.value, "from_port", null)
+      to_port          = lookup(backend_ingress.value, "to_port", null)
+      protocol         = lookup(backend_ingress.value, "protocol", null)
+      cidr_blocks      = lookup(backend_ingress.value, "cidr_blocks", null)
+    }
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "backend_security_group"
+  }
+}*/
+
+
+resource "aws_security_group" "main" {
+  egress = [
+    {
+      cidr_blocks      = [ "0.0.0.0/0", ]
+      description      = ""
+      from_port        = 0
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "-1"
+      security_groups  = []
+      self             = false
+      to_port          = 0
+    }
+  ]
+ ingress                = [
+   {
+     cidr_blocks      = [ "0.0.0.0/0", ]
+     description      = ""
+     from_port        = 22
+     ipv6_cidr_blocks = []
+     prefix_list_ids  = []
+     protocol         = "tcp"
+     security_groups  = []
+     self             = false
+     to_port          = 22
+  }
+  ]
+}
 
