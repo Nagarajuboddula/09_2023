@@ -9,6 +9,7 @@ frontend_instance_tags = {
     OsPlatform = "RHEL"
     Application = "NGINX"
 }
+/*
 frontend_sg_description = "Security group for frontend"
 frontend_sg_ingress_with_cidr_blocks = [
     {
@@ -36,4 +37,4 @@ frontend_sg_egress_with_cidr_blocks = [
       self             = false
       to_port          = 0   
     },
-]
+]*/
