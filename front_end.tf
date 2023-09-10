@@ -1,5 +1,5 @@
 
-resource "aws_instance" "frontend.ec2_instance" {
+resource "aws_instance" "frontend_ec2_instance" {
 
     #ami = "ami-026ebd4cfe2c043b2"
     ami = var.frontend_ec2_ami
