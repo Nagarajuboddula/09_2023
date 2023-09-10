@@ -71,3 +71,51 @@ resource "aws_security_group" "main" {
   ]
 }*/
 
+
+resource "aws_iam_role" "backend_ec2_role" {
+  name = "backend_test_role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+        "Service": "ssm.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+
+  tags = {
+      tag-key = "backend_test_role"
+  }
+}
+resource "aws_iam_instance_profile" "backend_ec2_profile" {
+  name = "backend_ec2_profile"
+  role = "${aws_iam_role.backend_test_role.name}"
+}
+resource "aws_iam_role_policy" "backend_ec2_policy" {
+  name = "backend_ec2_policy"
+  role = "${aws_iam_role.backend_test_role.id}"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}
