@@ -72,7 +72,7 @@ resource "aws_security_group" "main" {
   ]
 }*/
 
-resource "aws_security_group" "main" {
+resource "aws_security_group" "backend_ec2_instance" {
   egress = [
     {
       cidr_blocks      = [ "0.0.0.0/0", ]
