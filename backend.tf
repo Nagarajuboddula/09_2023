@@ -72,27 +72,31 @@ resource "aws_security_group" "main" {
   ]
 }*/
 
-
-resource "aws_iam_instance_profile" "backend_ec2_instance_profile" {
-  name = "backend_ec2_instance_profile"
-  role = "${aws_iam_role.backend_ec2_instance_role.name}"
-}
-resource "aws_iam_role_policy" "backend_ec2_policy" {
-  name = "backend_ec2_instance_policy"
-  role = "${aws_iam_role.backend_ec2_instance_role.id}"
-
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
+resource "aws_security_group" "main" {
+  egress = [
     {
-      "Action": [
-        "s3:*"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
+      cidr_blocks      = [ "0.0.0.0/0", ]
+      description      = ""
+      from_port        = 0
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      protocol         = "-1"
+      security_groups  = []
+      self             = false
+      to_port          = 0
     }
   ]
-}
-EOF
+ ingress                = [
+   {
+     cidr_blocks      = [ "0.0.0.0/0", ]
+     description      = ""
+     from_port        = 22
+     ipv6_cidr_blocks = []
+     prefix_list_ids  = []
+     protocol         = "tcp"
+     security_groups  = []
+     self             = false
+     to_port          = 22
+  }
+  ]
 }
