@@ -14,6 +14,8 @@ resource "aws_instance" "frontend_ec2_instance" {
       hostnamectl set-hostname c8.local
       EOF*/ 
 } 
+
+/*
 resource "aws_security_group" "main" {
   egress = [
     {
@@ -41,5 +43,5 @@ resource "aws_security_group" "main" {
      to_port          = 22
   }
   ]
-}
+}*/
 
