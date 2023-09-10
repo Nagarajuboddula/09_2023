@@ -6,7 +6,7 @@ resource "aws_instance" "backend_ec2_instance" {
     tags = var.backend_instance_tags
     #sg_description = var.backend_sg_description
     #sg_ingress_with_cidr_blocks = var.backend_sg_ingress_with_cidr_blocks
-iam_instance_profile = "${aws_iam_instance_profile.backend_ec2_profile.name}"
+
     #sg_egress_with_cidr_blocks = var.backend_sg_egress_with_cidr_blocks
   user_data = <<-EOF
       #!/bin/sh
