@@ -18,34 +18,6 @@ resource "aws_instance" "frontend_ec2_instance" {
 
 
 /*
-resource "aws_security_group" "frontend_security_group" {
-  name = "frontend_security_group"
-  description = "frontend_security_group"
-
-  dynamic "ingress" {
-    for_each = var.frontend_ingress_rules
-    content {
-      description      = lookup(frontend_ingress.value, "description", null)
-      from_port        = lookup(frontend_ingress.value, "from_port", null)
-      to_port          = lookup(frontend_ingress.value, "to_port", null)
-      protocol         = lookup(frontend_ingress.value, "protocol", null)
-      cidr_blocks      = lookup(frontend_ingress.value, "cidr_blocks", null)
-    }
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "frontend_security_group"
-  }
-}*/
-
-/*
 resource "aws_security_group" "main" {
   egress = [
     {

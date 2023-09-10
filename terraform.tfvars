@@ -19,7 +19,7 @@ backend_ec2_ami = "ami-053b0d53c279acc90"
 backend_ec2_instance_type = "t2.micro"
 backend_key_name = "naga"
 backend_instance_tags = {
-    Name = "FE_u21.local"
+    Name = "BE_u21.local"
     OsPlatform = "Ubuntu"
     Application = "Netdata"
 }
