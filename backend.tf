@@ -41,7 +41,7 @@ resource "aws_security_group" "backend_security_group" {
   }
 }*/
 
-
+/*
 resource "aws_security_group" "main" {
   egress = [
     {
@@ -69,5 +69,5 @@ resource "aws_security_group" "main" {
      to_port          = 22
   }
   ]
-}
+}*/
 
