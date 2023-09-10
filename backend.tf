@@ -73,13 +73,13 @@ resource "aws_security_group" "main" {
 }*/
 
 
-resource "aws_iam_instance_profile" "backend_ec2_profile" {
-  name = "backend_ec2_profile"
-  role = "${aws_iam_role.backend_test_role.name}"
+resource "aws_iam_instance_profile" "backend_ec2_instance_profile" {
+  name = "backend_ec2_instance_profile"
+  role = "${aws_iam_role.backend_ec2_instance_role.name}"
 }
 resource "aws_iam_role_policy" "backend_ec2_policy" {
-  name = "backend_ec2_policy"
-  role = "${aws_iam_role.backend_test_role.id}"
+  name = "backend_ec2_instance_policy"
+  role = "${aws_iam_role.backend_ec2_instance_role.id}"
 
   policy = <<EOF
 {

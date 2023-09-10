@@ -1,4 +1,4 @@
-resource "aws_iam_role" "backend_ec2_role" {
+resource "aws_iam_role" "backend_ec2_instance_role" {
   name = "backend_test_role"
 
   assume_role_policy = <<EOF
