@@ -1,7 +1,7 @@
 resource "aws_iam_role" "backend_ec2_instance_role" {
   name = "backend_test_role"
 
-  assume_role_policy = <<EOF
+  assume_role_policy
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -16,7 +16,6 @@ resource "aws_iam_role" "backend_ec2_instance_role" {
     }
   ]
 }
-EOF
 
   tags = {
       tag-key = "backend_test_role"
