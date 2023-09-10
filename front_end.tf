@@ -6,7 +6,7 @@ resource "aws_instance" "frontend_ec2_instance" {
     #instance_type = "t2.micro"
     instance_type = var.frontend_ec2_instance_type
     #key_name= "naga"
-    key_name= frontend_aws_key_pair
+    key_name= frontend_key_name
     hostname = var.frontend_host_name
     #vpc_security_group_ids = [aws_security_group.main.id]
 /*
