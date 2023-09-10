@@ -12,7 +12,7 @@ resource "aws_instance" "frontend_ec2_instance" {
   user_data = <<-EOF
       #!/bin/sh
       hostnamectl set-hostname c8.local
-      EOF*/ 
+      EOF
 } 
 
 /*
