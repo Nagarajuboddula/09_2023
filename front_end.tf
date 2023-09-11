@@ -6,7 +6,7 @@ resource "aws_instance" "frontend_ec2_instance" {
     tags = var.frontend_instance_tags
     root_block_device {
       volume_size =15
-      volume_type = gp3
+      volume_type =gp2
     }
     vpc_security_group_ids = [aws_security_group.sec-grp.id]
     #sg_description = var.frontend_sg_description
