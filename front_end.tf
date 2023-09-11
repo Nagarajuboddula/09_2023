@@ -1,3 +1,7 @@
+terraform [
+  backend"s3" {}
+]
+
 
 resource "aws_instance" "frontend_ec2_instance" {
     ami = var.frontend_ec2_ami
