@@ -1,4 +1,4 @@
-/*
+
 
 
 resource "aws_instance" "backend_ec2_instance" {
