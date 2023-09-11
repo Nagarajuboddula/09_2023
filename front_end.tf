@@ -1,4 +1,4 @@
-
+/*
 
 
 resource "aws_instance" "frontend_ec2_instance" {
@@ -22,5 +22,6 @@ resource "aws_instance" "frontend_ec2_instance" {
       EOF
 } 
 
+*/
 
 
