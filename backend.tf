@@ -4,6 +4,12 @@ resource "aws_instance" "backend_ec2_instance" {
     instance_type = var.backend_ec2_instance_type
     key_name= var.backend_key_name
     tags = var.backend_instance_tags
+    root_block_device {
+    volume_size           = "20"
+    volume_type           = "gp2"
+    #encrypted             = true
+    delete_on_termination = true
+  }
     #sg_description = var.backend_sg_description
     #sg_ingress_with_cidr_blocks = var.backend_sg_ingress_with_cidr_blocks
 vpc_security_group_ids = [aws_security_group.sec-grp.id]
