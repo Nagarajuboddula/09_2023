@@ -4,7 +4,7 @@ resource "aws_instance" "frontend_ec2_instance" {
     instance_type = var.frontend_ec2_instance_type
     key_name= var.frontend_key_name
     tags = var.frontend_instance_tags
-    rdata "aws_ebs_volume" "frontend_ebs_volume" {
+    data "aws_ebs_volume" "frontend_ebs_volume" {
   most_recent = true
 
   filter {
