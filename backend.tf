@@ -1,6 +1,4 @@
-terraform [
-  backend"s3" {}
-]
+
 
 
 resource "aws_instance" "backend_ec2_instance" {
